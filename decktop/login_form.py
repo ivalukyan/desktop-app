@@ -1,5 +1,5 @@
-import sys
-from PySide6 import QtWidgets, QtCore
+from PySide6 import QtWidgets
+from decktop.table_win import TableWindow
 
 
 class LoginForm(QtWidgets.QWidget):
@@ -28,6 +28,8 @@ class LoginForm(QtWidgets.QWidget):
         layout.addWidget(self.login_button)
         layout.addWidget(self.message_label)
         self.setLayout(layout)
+        
+        self.login_button.clicked.connect(self.check_credentials)
         
     def check_credentials(self):
         # Полученные данные
