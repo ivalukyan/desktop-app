@@ -42,14 +42,6 @@ class LoginForm(QtWidgets.QWidget):
             self.table_window = TableWindow() # Перенаправление на окно с таблицей
             self.table_window.show()
             
-            
-        
-        
-        
-if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
-
-    login_form = LoginForm()
-    login_form.show()
-
-    sys.exit(app.exec())
+        else:
+            self.message_label.setText("Нерверный логин или пароль!")
+            self.message_label.setStyle("color: red")
