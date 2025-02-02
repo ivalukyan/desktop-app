@@ -7,7 +7,7 @@ from sqlalchemy import ExceptionContext
 db = SessionMaker()
 
 
-def get_all_traffic():
+def get_traffic_all():
     return db.query(Traffic).all()
 
 
