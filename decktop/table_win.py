@@ -1,6 +1,6 @@
 from PySide6 import QtWidgets
 from utils.data_utils import clean_data_product, clean_data_traffic
-from utils.db_utils import get_all_traffic, get_products_all
+from utils.db_utils import get_traffic_all, get_products_all
 
 
 class TableWindow(QtWidgets.QWidget):
@@ -14,7 +14,7 @@ class TableWindow(QtWidgets.QWidget):
         # Создаем QStackedWidget для переключения между таблицами
         self.stacked_widget = QtWidgets.QStackedWidget()
         
-        self.traffic = clean_data_traffic(get_all_traffic())
+        self.traffic = clean_data_traffic(get_traffic_all())
         self.product = clean_data_product(get_products_all())
 
         # Создаем таблицы
