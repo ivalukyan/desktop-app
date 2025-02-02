@@ -21,7 +21,7 @@ def traffic_excel():
 def product_csv():
     df = pd.read_csv(f"{PATH_FILES}/files/products.csv", sep=";")
     for index, data in df.iterrows():
-        if data["Изображение"] == "нет":
+        if data["Изображение"] == "нет" or data["Изображение"] == "отсутвует":
             add_products(data["Наименование материала"], data["Тип материала"], None, data["Цена"],
                          data["Количество на складе"], data["Минимальное количество"], data["Количество в упаковке"],
                          data["Единица измерения"])
