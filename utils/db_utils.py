@@ -7,6 +7,10 @@ from sqlalchemy import ExceptionContext
 db = SessionMaker()
 
 
+def get_all_traffic():
+    return db.query(Traffic).all()
+
+
 def add_traffic(material_name: str, possible_delivery: str):
     traffic = Traffic(material_name=material_name, possible_delivery=possible_delivery)
     try:
@@ -17,6 +21,10 @@ def add_traffic(material_name: str, possible_delivery: str):
         db.rollback()
     finally:
         db.close()
+        
+        
+def get_products_all():
+    return db.query(Products).all()
 
 
 def add_products(material_name: str, material_type: str, material_img: str | None, material_price: str,

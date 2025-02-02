@@ -1,4 +1,6 @@
 from PySide6 import QtWidgets
+from utils.data_utils import clean_data_product, clean_data_traffic
+from utils.db_utils import get_all_traffic, get_products_all
 
 
 class TableWindow(QtWidgets.QWidget):
@@ -11,23 +13,17 @@ class TableWindow(QtWidgets.QWidget):
 
         # Создаем QStackedWidget для переключения между таблицами
         self.stacked_widget = QtWidgets.QStackedWidget()
+        
+        self.traffic = clean_data_traffic(get_all_traffic())
+        self.product = clean_data_product(get_products_all())
 
         # Создаем таблицы
         self.table1 = self.create_table(["Наименование материала", "Тип материала",
                                          "Изображение", "Цена", "Количество на складе",
                                          "Минимальное количество", "Количество в упаковке",
-                                         "Единица измерения"], [
-            ["Apple", "Fruit", "Red", "Sweet"],
-            ["Carrot", "Vegetable", "Orange", "Crunchy"],
-            ["Banana", "Fruit", "Yellow", "Sweet"],
-            ["Broccoli", "Vegetable", "Green", "Bitter"],
-        ])
+                                         "Единица измерения"], self.product)
 
-        self.table2 = self.create_table(["Наименование материала", "Возможный поставщик"], [
-            ["1", "Alice", "25"],
-            ["2", "Bob", "30"],
-            ["3", "Charlie", "35"],
-        ])
+        self.table2 = self.create_table(["Наименование материала", "Возможный поставщик"], self.traffic)
 
         # Добавляем таблицы в QStackedWidget
         self.stacked_widget.addWidget(self.table1)
