@@ -16,7 +16,7 @@ class LoginForm(QtWidgets.QWidget):
         self.password_label = QtWidgets.QLabel("Пароль:")
         self.password_input = QtWidgets.QLineEdit()
         self.password_input.setEchoMode(QtWidgets.QLineEdit.Password) # Срываем пароль
-        self.login_button = QtWidgets.QPushButton("Выйти")
+        self.login_button = QtWidgets.QPushButton("Войти")
         self.message_label = QtWidgets.QLabel("")
         
         # Компановка компоненетов
